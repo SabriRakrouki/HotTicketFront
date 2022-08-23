@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { Routes, BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Typography, Grid, Button } from '@mui/material';
+import About from './Pages/About';
+import Header from './Components/Header/Header';
+import Home from './Pages/Home';
+import EventPage from './Pages/Event';
+import Contact from './Pages/Contact';
+import Login from './Components/Login/login';
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <Router>
+        <Grid>
+
+          <Header />
+          <Routes>
+            <Route path='/about' excat element={<About />} />
+            <Route path='/home' exact element={<Login />
+            } />
+            <Route path='/event' exact element={<EventPage />} />
+            <Route path='/contact' exact element={<Contact />} />
+
+
+
+          </Routes>
+
+
+
+
+        </Grid>
+      </Router>
+
+
+
+    </>
+
   );
 }
-
-export default App;
