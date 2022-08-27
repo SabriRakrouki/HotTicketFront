@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import EventPage from './Pages/Event';
 import Contact from './Pages/Contact';
 import Login from './Components/Login/login';
+import SignUp from './Components/SignUpSimpleUser/SignUp';
 
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
           <Header />
           <Routes>
             <Route path='/about' excat element={<About />} />
-            <Route path='/home' exact element={<Login />
+            <Route path='/home' exact element={<SignUp />
             } />
             <Route path='/event' exact element={<EventPage />} />
             <Route path='/contact' exact element={<Contact />} />
