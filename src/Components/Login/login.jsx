@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState, useContext } from 'react'
 import AuthContext from '../../context/AuthProvider';
 import axios from '../../api/axios';
 import SignUp from '../SignUpSimpleUser/SignUp';
+import PersonIcon from '@mui/icons-material/Person';
 const LOGIN_URL = '/user/login';
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -110,8 +111,12 @@ function Login() {
     return (
         <>
 
-            <Button variant='contained' onClick={handleClickOpen}>
-                LogIn
+            <Button variant='text' onClick={handleClickOpen} sx={{ display: 'flex', justifyContent: 'center',color:'white' }}>
+                <Grid sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                    <PersonIcon />
+                    <Typography>Sign In</Typography>
+
+                </Grid>
             </Button>
 
             <Dialog
@@ -131,7 +136,7 @@ function Login() {
 
 
                 </DialogTitle>
-                <DialogContent sx={{ margin: '2%', padding: '2%',height:'100%' }}>
+                <DialogContent sx={{ margin: '2%', padding: '2%', height: '100%' }}>
 
 
 
@@ -177,7 +182,7 @@ function Login() {
 
 
 
-                                    <Link href="#" onClick={()=>handleChange('event',1)}>SignUp</Link>
+                                    <Link href="#" onClick={() => handleChange('event', 1)}>SignUp</Link>
 
 
                                 </Grid>
@@ -192,7 +197,7 @@ function Login() {
 
 
 
-                    <TabPanel value={value} index={1} ><SignUp/></TabPanel>
+                    <TabPanel value={value} index={1} ><SignUp /></TabPanel>
                 </DialogContent>
 
             </Dialog>

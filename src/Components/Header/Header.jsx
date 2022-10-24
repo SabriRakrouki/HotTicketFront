@@ -6,7 +6,9 @@ import * as React from 'react'
 import Carousel from '../carousel/Carousel';
 import { useStyles } from "./useStyles";
 import DrawerComp from './Drawer/DrawerComp';
-import Login from '../Login/login';
+import Login from '../Login/Login';
+import LinkButton from './LinkButton';
+import logo from '../../Assets/img/logo.png'
 
 
 
@@ -18,29 +20,24 @@ export default function Header() {
   };
   return (
     <React.Fragment>
-      <AppBar sx={{ background: '#063970', position: 'sticky', opacity: "50%" }}>
+      <AppBar sx={{position:'fixed' ,backgroundColor: 'transparent', zIndex: '7' }}>
         <Toolbar>
-          <Typography>HOT TICKET</Typography>
+          <img src={logo} width="150px" />
 
-          <Tabs sx={{ margin: ' auto' }} textColor='inherit ' value={value} onChange={handleChange} indicatorColor="primary">
+          <Grid sx={{ display: 'flex', justifyContent: 'space-between', margin: 'auto' }}>
             {pages.map((page, index) => (
+              <LinkButton link={page.link} name={page.title} key={index} />
 
-              <Tab
-                label={page.title}
-                component={Link}
-                to={page.link}
-                key={index}
-              />
 
             ))}
-          </Tabs>
+          </Grid>
+          <Grid sx={{ margin: '1 1 auto' }}></Grid>
           <Grid>
             <Login />
           </Grid>
 
 
         </Toolbar>
-        <DrawerComp />
       </AppBar>
 
     </React.Fragment>
